@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminarc Works | Freelance Photography & Creative Studio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        luminarc: {
+                            base: '#060a17',
+                            deep: '#0a1128',
+                            card: '#0f1738',
+                            glow: '#3b82f6',
+                            cyan: '#38bdf8',
+                            arc: '#60a5fa',
+                            text: '#f8fafc'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'arc-pulse': 'arcPulse 4s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        arcPulse: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.08)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-luminarc-base text-luminarc-text antialiased selection:bg-luminarc-cyan selection:text-black">
+
+    <div class="fixed -top-32 left-1/2 -translate-x-1/2 w-[45rem] h-[25rem] bg-gradient-to-b from-blue-600/20 via-sky-500/10 to-transparent rounded-full blur-3xl pointer-events-none animate-arc-pulse z-0"></div>
+    <div class="fixed bottom-10 right-10 w-[30rem] h-[30rem] bg-indigo-900/15 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-luminarc-base/70 backdrop-blur-md border-b border-blue-900/30 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3 group">
+                <img src="Logo.png" alt="Luminarc Works Logo" class="w-11 h-11 object-contain group-hover:scale-105 transition-transform">
+                <div class="flex flex-col">
+                    <span class="font-black text-lg tracking-wider text-white uppercase leading-none group-hover:text-luminarc-cyan transition-colors">
+                        LUMINARC
+                    </span>
+                    <span class="text-[10px] tracking-[0.25em] text-blue-300 font-semibold uppercase leading-tight">
+                        WORKS
+                    </span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-300">
+                <a href="#home" class="hover:text-luminarc-cyan transition-colors py-1">Home</a>
+                <a href="#about" class="hover:text-luminarc-cyan transition-colors py-1">About</a>
+                <a href="#showcase" class="hover:text-luminarc-cyan transition-colors py-1">Showcase</a>
+                <a href="#services" class="hover:text-luminarc-cyan transition-colors py-1">Services</a>
+                <a href="#gear" class="hover:text-luminarc-cyan transition-colors py-1">Gear & Tools</a>
+                <a href="#contact" class="hover:text-luminarc-cyan transition-colors py-1">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 rounded-full hover:shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-camera mr-2 text-xs"></i> Book a Shoot
+                </a>
+                <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass-card border-b border-gray-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="#home" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-luminarc-deep">Home</a>
+            <a href="#about" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-luminarc-deep">About</a>
+            <a href="#showcase" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-luminarc-deep">Showcase</a>
+            <a href="#services" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-luminarc-deep">Services</a>
+            <a href="#gear" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-luminarc-deep">Gear & Tools</a>
+            <a href="#contact" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-luminarc-deep">Contact</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-link block text-center w-full py-3 px-4 font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 rounded-xl shadow-md">
+                    Book a Shoot
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Info -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-blue-400/30 text-luminarc-cyan text-xs sm:text-sm font-medium">
+                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-ping"></span>
+                        Accepting Freelance Shoots & Bookings 2026
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
+                        LUMINARC <span class="gradient-arc-text">WORKS</span>
+                    </h1>
+
+                    <!-- Dynamic Role Switcher -->
+                    <p class="text-xl sm:text-2xl font-medium text-gray-300 h-10 flex items-center justify-center lg:justify-start gap-2">
+                        <span>Specialized in</span>
+                        <span id="typewriterText" class="text-luminarc-cyan font-semibold border-b-2 border-luminarc-cyan pb-0.5">Freelance Photo and Video</span>
+                    </p>
+
+                    <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Capturing emotion, and stories behind the lens. Specializing in freelance event shoots, portraits, creative post-processing, and cinematic video edits.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#showcase" class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 rounded-xl hover:shadow-xl hover:shadow-blue-500/25 transition-all transform hover:-translate-y-1 text-center">
+                            Explore Showcase <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-gray-200 glass-card rounded-xl hover:text-white hover:bg-luminarc-deep transition-all text-center border border-gray-700">
+                            Book a Shoot
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="pt-8 border-t border-gray-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-white">80+</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Shoots & Events</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-white">100%</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Client Satisfaction</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-white">4+</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Creative Disciplines</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual -->
+                <div class="lg:col-span-5 flex justify-center relative">
+    <div class="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full p-1 bg-gradient-to-tr from-blue-600 via-sky-400 to-indigo-500 shadow-2xl shadow-blue-500/30 animate-float">
+        <div class="w-full h-full rounded-full overflow-hidden border-4 border-luminarc-deep relative">
+            <img src="Logo.png" alt="Luminarc Works Showcase" class="w-full h-full object-cover">
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 relative z-10 bg-luminarc-deep/60 border-t border-b border-blue-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-luminarc-cyan tracking-widest uppercase mb-2">About Luminarc Works</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Visual Artistry & Digital Crafts</h3>
+                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-sky-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6 text-gray-300 leading-relaxed">
+                    <p class="text-lg text-white font-medium">
+                        Luminarc Works is a creative visual practice built on the passion for freelance photography, event coverage, and multimedia storytelling.
+                    </p>
+                    <p>
+                        Whether shooting on-site event highlights, community festivals (such as SINDAK GTEX Spookfest), portrait sessions, or post-processing footage, Luminarc Works brings a sharp eye for lighting, detail, and emotion.
+                    </p>
+                    <p>
+                        Beyond photography, the studio provides end-to-end creative solutions—including cinematic video editing, custom graphic branding, and responsive web development to showcase your vision to the world.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap gap-3">
+                        <span class="glass-card px-4 py-2 rounded-xl text-sm font-medium text-luminarc-cyan border border-blue-400/20">
+                            <i class="fa-solid fa-camera-retro mr-1.5"></i> Event Coverage
+                        </span>
+                        <span class="glass-card px-4 py-2 rounded-xl text-sm font-medium text-blue-300 border border-blue-400/20">
+                            <i class="fa-solid fa-film mr-1.5"></i> Cinematic Edits
+                        </span>
+                        <span class="glass-card px-4 py-2 rounded-xl text-sm font-medium text-sky-300 border border-sky-400/20">
+                            <i class="fa-solid fa-palette mr-1.5"></i> Graphic Design
+                        </span>
+                        <span class="glass-card px-4 py-2 rounded-xl text-sm font-medium text-indigo-300 border border-indigo-400/20">
+                            <i class="fa-solid fa-code mr-1.5"></i> Web Projects
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Expertise Breakdown -->
+                <div class="lg:col-span-6 glass-card p-6 sm:p-8 rounded-2xl border border-blue-900/40">
+                    <h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-luminarc-cyan"></i> Skill Spectrum & Work Focus
+                    </h4>
+
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-gray-200">Freelance Photography & Event Shoots</span>
+                                <span class="text-luminarc-cyan">95%</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-gray-900 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-blue-500 to-sky-400 rounded-full w-[95%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-gray-200">Video Editing & Color Grading</span>
+                                <span class="text-sky-300">90%</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-gray-900 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-sky-500 to-cyan-400 rounded-full w-[90%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-gray-200">Graphic & Layout Design</span>
+                                <span class="text-indigo-300">85%</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-gray-900 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-indigo-500 to-blue-400 rounded-full w-[85%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-gray-200">Frontend Web Development</span>
+                                <span class="text-teal-300">80%</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-gray-900 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-teal-400 to-emerald-400 rounded-full w-[80%]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-gray-800">
+                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Primary Tools</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-luminarc-deep hover:bg-gray-800 text-gray-300 rounded-lg text-xs font-medium border border-blue-900/30">Adobe Lightroom</span>
+                            <span class="px-3 py-1 bg-luminarc-deep hover:bg-gray-800 text-gray-300 rounded-lg text-xs font-medium border border-blue-900/30">Photoshop</span>
+                            <span class="px-3 py-1 bg-luminarc-deep hover:bg-gray-800 text-gray-300 rounded-lg text-xs font-medium border border-blue-900/30">Premiere Pro</span>
+                            <span class="px-3 py-1 bg-luminarc-deep hover:bg-gray-800 text-gray-300 rounded-lg text-xs font-medium border border-blue-900/30">DaVinci Resolve</span>
+                            <span class="px-3 py-1 bg-luminarc-deep hover:bg-gray-800 text-gray-300 rounded-lg text-xs font-medium border border-blue-900/30">HTML / Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SHOWCASE SECTION -->
+    <section id="showcase" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold text-luminarc-cyan tracking-widest uppercase mb-2">Portfolio Showcase</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Featured Projects & Shoots</h3>
+                <p class="text-gray-400 mt-2">Filter through freelance shoots, video highlights, graphic visuals, and web builds.</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-sky-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12">
+                <button class="filter-btn active-filter px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-lg shadow-blue-500/20" data-filter="all">
+                    All Work
+                </button>
+                <button class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold text-gray-400 glass-card hover:text-white hover:bg-luminarc-deep transition-all border border-blue-900/30" data-filter="shoots">
+                    Freelance Shoots
+                </button>
+                <button class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold text-gray-400 glass-card hover:text-white hover:bg-luminarc-deep transition-all border border-blue-900/30" data-filter="video">
+                    Video Editing
+                </button>
+                <button class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold text-gray-400 glass-card hover:text-white hover:bg-luminarc-deep transition-all border border-blue-900/30" data-filter="graphic">
+                    Graphic Design
+                </button>
+                <button class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold text-gray-400 glass-card hover:text-white hover:bg-luminarc-deep transition-all border border-blue-900/30" data-filter="web">
+                    Web Projects
+                </button>
+            </div>
+
+            <!-- Showcase Grid -->
+            <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project Item 1 -->
+                <div class="portfolio-item group glass-card rounded-2xl overflow-hidden border border-blue-900/30 hover:border-luminarc-cyan/50 transition-all duration-300 transform hover:-translate-y-2" data-category="shoots">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="SINDAK GTEX Spookfest Shoot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-luminarc-base/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button onclick="openModal('SINDAK GTEX Spookfest Coverage', 'Freelance Shoot / Event', 'Full event photography coverage capturing stage performances, audience reactions, and atmosphere during the GTEX Spookfest event.', 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80')" class="w-12 h-12 rounded-full bg-luminarc-cyan text-black flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand text-lg"></i>
+                            </button>
+                        </div>
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold bg-luminarc-base/80 text-luminarc-cyan backdrop-blur-md">
+                            Event Shoot
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white group-hover:text-luminarc-cyan transition-colors">SINDAK GTEX Spookfest Shoot</h4>
+                        <p class="text-gray-400 text-sm mt-2 line-clamp-2">Low-light event photography capturing high-energy festival atmosphere and stage highlights.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Event Shoot</span>
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Lightroom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Item 2 -->
+                <div class="portfolio-item group glass-card rounded-2xl overflow-hidden border border-blue-900/30 hover:border-luminarc-cyan/50 transition-all duration-300 transform hover:-translate-y-2" data-category="video">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="Cinematic Aftermovie Cut" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-luminarc-base/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button onclick="openModal('Cinematic Event Aftermovie', 'Video Editing & Post-Production', 'Dynamic post-event video recap with custom color grading, beat-synced cuts, and atmospheric sound design.', 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80')" class="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-play text-lg"></i>
+                            </button>
+                        </div>
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold bg-luminarc-base/80 text-blue-400 backdrop-blur-md">
+                            Video Editing
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Cinematic Event Aftermovie</h4>
+                        <p class="text-gray-400 text-sm mt-2 line-clamp-2">Paced event recap reel with customized color profiles and audio mastering.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Premiere Pro</span>
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Color Grading</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Item 3 -->
+                <div class="portfolio-item group glass-card rounded-2xl overflow-hidden border border-blue-900/30 hover:border-luminarc-cyan/50 transition-all duration-300 transform hover:-translate-y-2" data-category="graphic">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Luminarc Arc Brand Asset" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-luminarc-base/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button onclick="openModal('Luminarc Works Visual Branding', 'Graphic & Brand Design', 'Vector arc identity suite, glowing typography rules, poster key-visuals, and promotional graphics.', 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80')" class="w-12 h-12 rounded-full bg-sky-400 text-black flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand text-lg"></i>
+                            </button>
+                        </div>
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold bg-luminarc-base/80 text-sky-300 backdrop-blur-md">
+                            Graphic Design
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white group-hover:text-sky-300 transition-colors">Luminarc Brand Identity Assets</h4>
+                        <p class="text-gray-400 text-sm mt-2 line-clamp-2">Luminous arc identity system, vector logos, and promotional graphic banners.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Photoshop</span>
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Vector Art</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Item 4 -->
+                <div class="portfolio-item group glass-card rounded-2xl overflow-hidden border border-blue-900/30 hover:border-luminarc-cyan/50 transition-all duration-300 transform hover:-translate-y-2" data-category="shoots">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Outdoor Portrait Session" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-luminarc-base/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button onclick="openModal('Urban Portrait Session', 'Freelance Shoot / Portrait', 'On-location portrait photography emphasizing natural lighting, shadow control, and subtle skin retouching.', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80')" class="w-12 h-12 rounded-full bg-luminarc-cyan text-black flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand text-lg"></i>
+                            </button>
+                        </div>
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold bg-luminarc-base/80 text-luminarc-cyan backdrop-blur-md">
+                            Portrait Shoot
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white group-hover:text-luminarc-cyan transition-colors">Urban Portrait Session</h4>
+                        <p class="text-gray-400 text-sm mt-2 line-clamp-2">Moody urban lighting photoshoot focused on composition and clean facial detail.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Portrait</span>
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Retouching</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Item 5 -->
+                <div class="portfolio-item group glass-card rounded-2xl overflow-hidden border border-blue-900/30 hover:border-luminarc-cyan/50 transition-all duration-300 transform hover:-translate-y-2" data-category="web">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Luminarc Interactive Site" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-luminarc-base/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button onclick="openModal('Luminarc Web Portfolio App', 'Web Development', 'Custom dark-themed interactive website constructed with HTML5, Tailwind CSS, and lightweight JS logic.', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80')" class="w-12 h-12 rounded-full bg-indigo-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold bg-luminarc-base/80 text-indigo-400 backdrop-blur-md">
+                            Web Development
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">Luminarc Web Portfolio</h4>
+                        <p class="text-gray-400 text-sm mt-2 line-clamp-2">Interactive responsive dark-themed portfolio website with glowing arc aesthetic.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Tailwind</span>
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Item 6 -->
+                <div class="portfolio-item group glass-card rounded-2xl overflow-hidden border border-blue-900/30 hover:border-luminarc-cyan/50 transition-all duration-300 transform hover:-translate-y-2" data-category="shoots">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Concert & Stage Lights Shoot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-luminarc-base/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button onclick="openModal('Live Stage & Performance Photography', 'Freelance Shoot', 'High shutter speed photography capturing vibrant stage beams, performers, and crowd moments.', 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80')" class="w-12 h-12 rounded-full bg-luminarc-cyan text-black flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand text-lg"></i>
+                            </button>
+                        </div>
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold bg-luminarc-base/80 text-luminarc-cyan backdrop-blur-md">
+                            Live Stage Shoot
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white group-hover:text-luminarc-cyan transition-colors">Live Stage Performance Shoot</h4>
+                        <p class="text-gray-400 text-sm mt-2 line-clamp-2">Stage light capture and high-motion event shots under complex lighting setup.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Action Shot</span>
+                            <span class="text-xs bg-luminarc-deep text-gray-300 px-2.5 py-1 rounded-md">Stage Light</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-20 relative z-10 bg-luminarc-deep/60 border-t border-b border-blue-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-luminarc-cyan tracking-widest uppercase mb-2">Services & Capabilities</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">What Luminarc Works Offers</h3>
+                <p class="text-gray-400 mt-2">Comprehensive visual shooting and creative post-production packages.</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-sky-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass-card p-8 rounded-2xl border border-blue-900/30 hover:border-luminarc-cyan/60 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-500/10 text-luminarc-cyan flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-luminarc-cyan group-hover:text-black transition-all">
+                        <i class="fa-solid fa-camera font-bold"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Freelance Photography</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Full-scale event coverage, portrait shoots, community highlights, and low-light photography with color grading.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border border-blue-900/30 hover:border-blue-400/60 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-400/10 text-blue-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-blue-400 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Cinematic Video Editing</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Paced event aftermovies, reel cuts, color LUT applications, beat synchronization, and audio cleanup.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border border-blue-900/30 hover:border-sky-300/60 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-400/10 text-sky-300 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-sky-400 group-hover:text-black transition-all">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Graphic & Visual Design</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Event poster key-visuals, vector logos, social media graphics, and brand asset guidelines.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border border-blue-900/30 hover:border-indigo-400/60 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-300 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Web Development</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Custom portfolio platforms, event landing pages, and dark-themed performant websites.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GEAR & WORKFLOW SECTION -->
+    <section id="gear" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-luminarc-cyan tracking-widest uppercase mb-2">Technical Rig & Software</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Gear & Creative Tools</h3>
+                <p class="text-gray-400 mt-2">Equipped for high performance on location and in post-production.</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-sky-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl border border-blue-900/30">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-luminarc-cyan flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-camera font-bold"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Camera & Lenses</h4>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luminarc-cyan text-xs"></i> Full-frame Mirrorless Camera Body</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luminarc-cyan text-xs"></i> Prime 50mm f/1.8 Low-Light Lens</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luminarc-cyan text-xs"></i> Zoom 24-70mm f/2.8 Event Lens</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luminarc-cyan text-xs"></i> External Speedlight & Diffuser</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border border-blue-900/30">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Post-Processing Suite</h4>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-400 text-xs"></i> Adobe Lightroom Classic (RAW Grading)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-400 text-xs"></i> Adobe Premiere Pro & After Effects</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-400 text-xs"></i> DaVinci Resolve Color Studio</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-400 text-xs"></i> Calibrated Color Monitor Rig</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border border-blue-900/30">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-sky-300 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Workflow Standard</h4>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-300 text-xs"></i> Fast Turnaround Preview Proofing</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-300 text-xs"></i> High-Resolution Cloud Delivery</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-300 text-xs"></i> Dual Backup Storage Protocol</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-300 text-xs"></i> Custom Color Look Profiles (LUTs)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & BOOKING FORM SECTION -->
+    <section id="contact" class="py-20 relative z-10 bg-luminarc-deep/60 border-t border-blue-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-luminarc-cyan tracking-widest uppercase mb-2">Bookings & Inquiries</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Work Together</h3>
+                <p class="text-gray-400 mt-2">Ready to schedule a shoot or collaborate on a creative project?</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-sky-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Contact Info Sidebar -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="glass-card p-8 rounded-2xl border border-blue-900/30 space-y-6">
+                        <h4 class="text-2xl font-bold text-white mb-4">Luminarc Contact Hub</h4>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-luminarc-cyan flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-400">Direct Email</h5>
+                                <a href="mailto:contact@luminarcworks.com" class="text-white hover:text-luminarc-cyan font-medium transition-colors">contact@luminarcworks.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-400">Availability</h5>
+                                <p class="text-white font-medium">On-Location Shoots & Remote Projects</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-sky-300 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-400">Booking Notice</h5>
+                                <p class="text-white font-medium">1-2 Weeks Advance Preferred for Events</p>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Links -->
+                        <div class="pt-6 border-t border-gray-800">
+                            <h5 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Follow Luminarc Works</h5>
+                            <div class="flex items-center gap-3">
+                                <a href="#" aria-label="Facebook Page" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-gray-300 hover:text-white hover:bg-blue-600 border border-blue-900/30 transition-all">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#" aria-label="Instagram Page" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-gray-300 hover:text-white hover:bg-pink-600 border border-blue-900/30 transition-all">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="#" aria-label="YouTube Channel" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-gray-300 hover:text-white hover:bg-red-600 border border-blue-900/30 transition-all">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <div class="lg:col-span-7 glass-card p-8 rounded-2xl border border-blue-900/30">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name / Client Name</label>
+                                <input type="text" id="name" required placeholder="Alex Rivera" class="w-full px-4 py-3 bg-luminarc-base/90 border border-blue-900/40 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-luminarc-cyan transition-colors">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                                <input type="email" id="email" required placeholder="alex@example.com" class="w-full px-4 py-3 bg-luminarc-base/90 border border-blue-900/40 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-luminarc-cyan transition-colors">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="serviceType" class="block text-sm font-medium text-gray-300 mb-2">Requested Service</label>
+                                <select id="serviceType" class="w-full px-4 py-3 bg-luminarc-base/90 border border-blue-900/40 rounded-xl text-gray-200 focus:outline-none focus:border-luminarc-cyan transition-colors">
+                                    <option>Freelance Photography / Event Shoot</option>
+                                    <option>Cinematic Video Editing</option>
+                                    <option>Graphic & Visual Design</option>
+                                    <option>Web Development Project</option>
+                                    <option>Full Media Package</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="eventDate" class="block text-sm font-medium text-gray-300 mb-2">Target Date (If Shoot)</label>
+                                <input type="date" id="eventDate" class="w-full px-4 py-3 bg-luminarc-base/90 border border-blue-900/40 rounded-xl text-gray-300 focus:outline-none focus:border-luminarc-cyan transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Project & Location Details</label>
+                            <textarea id="message" rows="5" required placeholder="Provide event context, shoot location, duration, or specific deliverables requested..." class="w-full px-4 py-3 bg-luminarc-base/90 border border-blue-900/40 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-luminarc-cyan transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all transform hover:-translate-y-0.5">
+                            Submit Booking Request <i class="fa-solid fa-paper-plane ml-2 text-sm"></i>
+                        </button>
+                    </form>
+
+                    <div id="formAlert" class="hidden mt-4 p-4 rounded-xl text-sm font-medium text-center"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-10 border-t border-blue-900/40 bg-luminarc-base relative z-10 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <img src="Logo.png" alt="Luminarc Works Logo" class="w-7 h-7 object-contain">
+                <p>&copy; <span id="year"></span> <span class="text-white font-semibold">Luminarc Works</span>. All rights reserved.</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#home" class="hover:text-luminarc-cyan transition-colors">Home</a>
+                <a href="#about" class="hover:text-luminarc-cyan transition-colors">About</a>
+                <a href="#showcase" class="hover:text-luminarc-cyan transition-colors">Showcase</a>
+                <a href="#services" class="hover:text-luminarc-cyan transition-colors">Services</a>
+                <a href="#contact" class="hover:text-luminarc-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE PROJECT LIGHTBOX MODAL -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-card border border-blue-900/50 rounded-2xl max-w-3xl w-full overflow-hidden relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-luminarc-cyan hover:text-black transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="aspect-video w-full bg-black overflow-hidden relative">
+                <img id="modalImg" src="" alt="Project Showcase Preview" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 sm:p-8 space-y-3">
+                <span id="modalCategory" class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/20 text-luminarc-cyan border border-blue-400/30"></span>
+                <h3 id="modalTitle" class="text-2xl font-bold text-white"></h3>
+                <p id="modalDesc" class="text-gray-300 text-sm leading-relaxed"></p>
+                <div class="pt-4 flex justify-end">
+                    <button onclick="closeModal()" class="px-5 py-2.5 bg-luminarc-deep hover:bg-gray-800 text-white rounded-xl text-sm font-semibold transition-colors border border-blue-900/40">
+                        Close Showcase
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
